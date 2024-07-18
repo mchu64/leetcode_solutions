@@ -10,7 +10,7 @@ class Solution(object):
 
         for x in strs:
             key = "".join(sorted(x))
-            if key not in output.keys():
+            if key not in output:
                 output[key] = []
                 output[key].append(x)
             else:
