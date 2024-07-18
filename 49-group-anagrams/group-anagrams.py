@@ -9,9 +9,10 @@ class Solution(object):
         output = {}
 
         for x in strs:
-            if "".join(sorted(x)) not in output.keys():
-                output["".join(sorted(x))] = []
-                output["".join(sorted(x))].append(x)
+            key = "".join(sorted(x))
+            if key not in output.keys():
+                output[key] = []
+                output[key].append(x)
             else:
-                output["".join(sorted(x))].append(x)
+                output[key].append(x)
         return output.values() 
