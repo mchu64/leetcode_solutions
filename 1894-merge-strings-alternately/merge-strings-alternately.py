@@ -17,11 +17,8 @@ class Solution(object):
             answer.append(word2[counter])
             counter += 1
         
-        if counter < length1:
-            answer.append(word1[counter:])
-
-        if counter < length2:
-            answer.append(word2[counter:])
+        answer.append(word1[counter:])
+        answer.append(word2[counter:])
         
         return "".join(answer)
 
