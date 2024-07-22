@@ -27,8 +27,6 @@ class Solution(object):
 
 
             i+=1
-
-
         if counter >= n:
             return True
         return False
