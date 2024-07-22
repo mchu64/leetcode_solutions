@@ -5,28 +5,11 @@ class Solution(object):
         :type n: int
         :rtype: bool
         """
-        i = 0
-        counter = 0
-
-        while i < len(flowerbed):
-            if i == 0 and len(flowerbed)>1:
-                if flowerbed[0] == 0 and flowerbed[i+1] == 0:
-                    flowerbed[0] = 1
-                    i+=1
-                    counter+=1
-            if i > 0 and i < len(flowerbed)-1: 
-                if flowerbed[i-1] == 0 and flowerbed[i] == 0 and flowerbed[i+1] == 0:
-                    counter += 1 
-                    flowerbed[i] = 1
-                    i+=1
-
-            if i == len(flowerbed)-1:
-                if flowerbed[i] == 0 and flowerbed[i-1] == 0:
-                    flowerbed[i] = 1
-                    counter+=1
-
-
-            i+=1
-        if counter >= n:
+        array = [0] + flowerbed + [0]
+        for x in range(1,len(array)-1):
+            if array[x] == 0 and array[x-1] == 0 and array[x+1] == 0:
+                array[x] =1
+                n-=1
+                
+        if n <= 0:
             return True
-        return False
