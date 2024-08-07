@@ -4,15 +4,16 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
-        left = 0
-        right = 1
-        p = 0
-        while right < len(prices):
-            if prices[left] < prices[right]:
-                temp = prices[right] - prices[left]
-                p = max(p,temp)
-            else:
-                left = right
-            right+=1
+        lowest = prices[0]
+        max = 0
 
-        return p
+        for x in range(len(prices)):
+            if lowest > prices[x]:
+                lowest = prices[x]
+            elif prices[x] - lowest > max:
+                max = prices[x] - lowest
+
+
+        return max
+
+        
