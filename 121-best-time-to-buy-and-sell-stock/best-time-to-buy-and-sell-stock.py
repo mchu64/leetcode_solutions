@@ -10,7 +10,7 @@ class Solution(object):
         for x in range(len(prices)):
             if lowest > prices[x]:
                 lowest = prices[x]
-            elif prices[x] - lowest > max:
+            if prices[x] - lowest > max:
                 max = prices[x] - lowest
 
 
