@@ -11,7 +11,7 @@ class Solution(object):
         :rtype: TreeNode
         """
 
-        if not root:
+        if root is None:
             return None
         
         temp = root.left
