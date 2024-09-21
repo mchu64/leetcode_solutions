@@ -10,10 +10,7 @@ class Solution(object):
         for price in prices:
             if price < min_element:
                 min_element = price
-            
-            profit = price - min_element
-        
-            if profit > max_profit:
-                max_profit = profit
+            elif price - min_element > max_profit:
+                max_profit = price - min_element
 
         return max_profit
