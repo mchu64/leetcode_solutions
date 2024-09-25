@@ -5,6 +5,14 @@ class Solution(object):
         :rtype: int
         """
 
-        x = s.split()
-        return len(x[-1])
-        
+        length = len(s)-1
+        counter = 0
+
+        while length >= 0 and s[length] == " ":
+            length-=1
+
+        while length >= 0 and s[length] != " ":
+            length-=1
+            counter+=1
+
+        return counter
