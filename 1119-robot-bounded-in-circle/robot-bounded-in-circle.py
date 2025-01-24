@@ -1,15 +1,4 @@
-class Solution(object):
-    def isRobotBounded(self, instructions):
-        """
-        :type instructions: str
-        :rtype: bool
-        """
-        if instructions == "":
-            return True
 
-        pos = [0,0]
-
-        direction = 0
 
 class Solution(object):
     def isRobotBounded(self, instructions):
