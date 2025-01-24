@@ -7,15 +7,18 @@ class Solution(object):
         :rtype: List[int]
         """
 
-        dict = {}
-
-        for x in nums:
-            if x in dict:
-                dict[x] += 1
-            else:
-                dict[x] = 1
-        sorted_nums = sorted(dict.keys(), key=lambda x: dict[x], reverse=True)
+        counter = {}
         answer = []
+
+        for num in nums:
+            if num not in counter:
+                counter[num] = 1
+            else:
+                counter[num] += 1
+
+        sorted_counter = sorted(counter.items(), key=lambda item: item[1], reverse=True)
+
         for x in range(k):
-            answer.append(sorted_nums[x])
+            answer.append(sorted_counter[x][0])
+        
         return answer
