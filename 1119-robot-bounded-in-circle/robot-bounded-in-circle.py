@@ -17,13 +17,13 @@ class Solution(object):
         :type instructions: str
         :rtype: bool
         """
-        pos = [0, 0]  # Starting position
-        direction = 0  # 0 = north, 1 = east, 2 = south, 3 = west
+        pos = [0, 0]
+        direction = 0
         
         for x in instructions:
             if x == "G":
-                direction = direction % 4  # Ensure direction is always valid
-                if direction == 0:  # North
+                direction = direction % 4
+                if direction == 0:
                     pos[1] += 1
                 elif direction == 1:  # East
                     pos[0] += 1
@@ -37,17 +37,16 @@ class Solution(object):
                 if x == "R":
                     direction = (direction + 1) % 4  # Wrap right turn
         
-        # If robot is back at the origin or not facing north, it's bounded
+
         return pos == [0, 0] or direction != 0
 
         if direction == 0:
             return False
-        
-        
+        else:
+            return True
         if pos == [0,0]:
             return True
-        
-        return True
+        return False
 
         
 
