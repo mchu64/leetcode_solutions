@@ -22,7 +22,6 @@ class Solution(object):
         
         for x in instructions:
             if x == "G":
-                direction = direction % 4
                 if direction == 0:
                     pos[1] += 1
                 elif direction == 1:  # East
@@ -36,19 +35,14 @@ class Solution(object):
                     direction = (direction - 1) % 4  # Wrap left turn
                 if x == "R":
                     direction = (direction + 1) % 4  # Wrap right turn
-        
 
-        return pos == [0, 0] or direction != 0
-
-        if direction == 0:
-            return False
-        else:
-            return True
+            
         if pos == [0,0]:
             return True
-        return False
-
+        if direction != 0:
+            return True
         
+        return False
 
 
         
