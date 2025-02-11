@@ -13,7 +13,7 @@ class Solution(object):
 
             if char in dict.values():
                 stack.append(char)
-            elif stack and char in dict.keys() and stack[-1] == dict[char]:
+            elif stack and stack[-1] == dict[char]:
                 stack.pop()
             else:
                 return False
