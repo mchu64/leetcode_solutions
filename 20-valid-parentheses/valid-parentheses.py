@@ -4,22 +4,24 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        if len(s) % 2 != 0:
-            return False
-        
+
         stack = []
 
-        closed = {")": "(", "}":"{","]":"["}
+        dict = {"}": "{", ")":"(","]":"["}
 
-        for x in s:
-            if x in closed.values():
-                stack.append(x)
-            elif stack and closed[x] == stack[-1]:
+        for char in s:
+
+            if char in dict.values():
+                stack.append(char)
+            elif stack and char in dict.keys() and stack[-1] == dict[char]:
                 stack.pop()
             else:
                 return False
 
-
         if len(stack) == 0:
             return True
-            
+        else:
+            return False
+
+        
+                
