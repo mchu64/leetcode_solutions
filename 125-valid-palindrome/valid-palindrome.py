@@ -4,12 +4,24 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        s=''.join(char.lower() for char in s if char.isalnum())
-        left = len(s)-1
 
-        for x in range(len(s)-1):
-            if s[x] != s[left]:
+        l = 0
+        r = len(s) - 1
+
+        while l < r:
+
+            while l < r and s[l].isalnum() == False:
+                l += 1
+            while l < r and s[r].isalnum() == False:
+                r -= 1
+
+            
+            if s[l].lower() != s[r].lower():
                 return False
-            left=left-1
-        
+
+            l +=1
+            r -=1
+
+
+
         return True
