@@ -5,23 +5,28 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        best = 0
 
-        count = {}
+        if len(s) == 1:
+            return 1
 
-        l = 0
+        left = 0
+        longest = 0
+        counts = {}
+        max_freq = 0
 
-        for r in range(len(s)):
-            if s[r] in count:
-                count[s[r]] +=1
+
+        for right in range(len(s)):
+            if s[right] in counts:
+                counts[s[right]] +=1
             else:
-                count[s[r]] = 1
-
+                counts[s[right]] = 1
             
-            while((r - l + 1) - max(count.values()) > k):
-                count[s[l]] -=1
-                l+=1
+            max_freq = max(max_freq, counts[s[right]])
 
-            best = max(best, r - l +1)
+            while (right - left + 1) - max_freq > k:
+                counts[s[left]] -= 1
+                left +=1
 
-        return best
+            longest = max(longest, right - left + 1)
+
+        return longest
