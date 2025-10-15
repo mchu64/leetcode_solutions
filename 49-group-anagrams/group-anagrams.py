@@ -4,15 +4,12 @@ class Solution(object):
         :type strs: List[str]
         :rtype: List[List[str]]
         """
-        
 
         output = {}
 
-        for x in strs:
-            key = "".join(sorted(x))
-            if key not in output:
-                output[key] = []
-                output[key].append(x)
+        for word in strs:
+            if "".join(sorted(word)) in output:
+                output["".join(sorted(word))].append(word)
             else:
-                output[key].append(x)
-        return output.values() 
+                output["".join(sorted(word))] = [word]
+        return output.values()
