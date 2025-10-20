@@ -12,6 +12,4 @@ class Solution(object):
             if target-nums[x] in hashmap:
                 return [x,hashmap[target-nums[x]]]
             hashmap[nums[x]] = x
-
-        return null
             
