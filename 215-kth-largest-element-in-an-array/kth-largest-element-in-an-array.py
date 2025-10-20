@@ -6,8 +6,14 @@ class Solution(object):
         :rtype: int
         """
 
-        sort = sorted(nums)
+        heap = []
 
-        return sort[len(nums)-k]
+        for x in nums:
+            heapq.heappush(heap, x)
+
+        for _ in range(len(nums)-k):
+            heapq.heappop(heap)
+        return heapq.heappop(heap)
+
 
         
