@@ -4,16 +4,13 @@ class Solution(object):
         :type s: str
         :rtype: int
         """
-        
-        left = 0
-        already_seen = set()
         longest = 0
-
+        left = 0
+        hashmap = {}
         for right in range(len(s)):
-            while s[right] in already_seen:
-                already_seen.remove(s[left])
-                left += 1
-            already_seen.add(s[right])
-            longest = max(longest,right-left + 1)
-
+            if s[right] in hashmap and hashmap[s[right]] >= left:
+                left = hashmap[s[right]] + 1
+            hashmap[s[right]] = right
+            longest = max(longest, right-left + 1)
         return longest
+            
