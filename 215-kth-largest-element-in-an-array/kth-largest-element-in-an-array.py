@@ -8,6 +8,6 @@ class Solution(object):
 
         sort = sorted(nums)
 
-        return sort[-k]
+        return sort[len(nums)-k]
 
         
