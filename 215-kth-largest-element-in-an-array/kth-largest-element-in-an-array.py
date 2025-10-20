@@ -6,14 +6,8 @@ class Solution(object):
         :rtype: int
         """
 
-        import heapq
+        sort = sorted(nums)
 
-        max_heap = [-x for x in nums]
-        heapq.heapify(max_heap)
+        return sort[-k]
 
-        while(k > 1):
-            -heapq.heappop(max_heap)
-            k= k- 1
-
-        x = -max_heap[0]
-        return x
+        
