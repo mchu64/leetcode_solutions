@@ -5,10 +5,13 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        # Iterate over pairs of indices in the input list nums
+
+        hashmap = {}
+
         for x in range(len(nums)):
-            for y in range(x+1, len(nums)):
-               if nums[x] + nums[y] == target:
-                    return [x,y]
-        
-        
+            if target-nums[x] in hashmap:
+                return [x,hashmap[target-nums[x]]]
+            hashmap[nums[x]] = x
+
+        return null
+            
