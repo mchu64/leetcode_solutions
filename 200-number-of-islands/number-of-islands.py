@@ -13,8 +13,10 @@ class Solution(object):
 
         def dfs(row,col):
             #make sure we are still in bounds:
-            if(row < 0 or col < 0 or row >= rows or col >= cols) or (row,col) in visited or grid[row][col] == '0':
-                    return
+            if(row < 0 or col < 0 or row >= rows or col >= cols):
+                return
+            if (row,col) in visited or grid[row][col] == '0':
+                return
             visited.add((row,col))
             dfs(row+1,col)
             dfs(row-1,col)
