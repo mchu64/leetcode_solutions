@@ -14,7 +14,7 @@ class Solution(object):
         def validate(root, low, high):
             if root is None:
                 return True
-            if not (low < root.val < high):
+            if root.val <= low or root.val >= high:
                 return False
             return validate(root.left,low,root.val) and validate(root.right,root.val,high)
 
