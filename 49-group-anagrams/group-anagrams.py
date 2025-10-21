@@ -5,11 +5,14 @@ class Solution(object):
         :rtype: List[List[str]]
         """
 
-        output = {}
+        hashmap = {}
 
         for word in strs:
-            if "".join(sorted(word)) in output:
-                output["".join(sorted(word))].append(word)
+            key = "".join(sorted(word))
+
+            if key in hashmap:
+                hashmap[key].append(word)
             else:
-                output["".join(sorted(word))] = [word]
-        return output.values()
+                hashmap[key] = [word]
+            
+        return hashmap.values()
